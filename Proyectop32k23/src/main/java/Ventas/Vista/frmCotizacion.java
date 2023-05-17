@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -44,7 +45,27 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
 
 int codigoAplicacion = 3004;
 
-    
+    public void llenadoDeTablasProductos() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("proCodigo");
+        modelo.addColumn("proNombre");
+        modelo.addColumn("proPrecios");
+        modelo.addColumn("proExistencias");
+        clsCotizacion cliente = new clsCotizacion();
+        //VendedorDAO vendedorDAO = new VendedorDAO();
+        List<clsCotizacion> listaClientes = cliente.getListadoClientes();
+        tblProdDispCot.setModel(modelo);
+        String[] dato = new String[4];
+        for (int i = 0; i < listaClientes.size(); i++) {
+            dato[0] = Integer.toString(listaClientes.get(i).getIdCliente());
+            dato[1] = listaClientes.get(i).getNombreCliente();
+            dato[2] = Double.toString(listaClientes.get(i).getHaberCliente());
+            dato[3] = Double.toString(listaClientes.get(i).getDebeCliente());
+            modelo.addRow(dato);
+        }              
+
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
