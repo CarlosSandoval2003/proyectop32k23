@@ -49,6 +49,7 @@ public class MdiVentas extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mnuProcesosVentas = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnuConsultasVentas = new javax.swing.JMenu();
         mnuReportesVentas = new javax.swing.JMenu();
         mnuAyudasVentas = new javax.swing.JMenu();
@@ -134,6 +135,15 @@ public class MdiVentas extends javax.swing.JFrame {
         mnuGeneralVentas.add(mnuCatalogosVentas);
 
         mnuProcesosVentas.setText("Procesos");
+
+        jMenuItem2.setText("Cotizaciones");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        mnuProcesosVentas.add(jMenuItem2);
+
         mnuGeneralVentas.add(mnuProcesosVentas);
 
         mnuConsultasVentas.setText("Consultas");
@@ -220,6 +230,15 @@ public class MdiVentas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        frmCotizacion ventana = new frmCotizacion();
+        jDesktopPaneVentas.add(ventana);
+        Dimension desktopSize = jDesktopPaneVentas.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +283,7 @@ public class MdiVentas extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1MdiVentas;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem1MdiVentas;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem2MdiVentas;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4MdiVentas;

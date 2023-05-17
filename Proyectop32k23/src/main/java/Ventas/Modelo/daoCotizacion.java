@@ -20,21 +20,17 @@ import java.util.List;
  * @author maria
  */
 public class daoCotizacion {
-   private static final String SQL_SELECT = "SELECT clId, clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe FROM tbl_cliente";
-private static final String SQL_INSERT = "INSERT INTO tbl_cliente(clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe) VALUES(?, ?, ?, ?, ?, ?, ?)";
-private static final String SQL_UPDATE = "UPDATE tbl_cliente SET clNombre=?, cldireccion=?, cltelefono=?, clemail=?, clNit=?, clHaber=?, clDebe=? WHERE clId = ?";
-private static final String SQL_DELETE = "DELETE FROM tbl_cliente WHERE clId=?";
-private static final String SQL_SELECT_NOMBRE = "SELECT clId, clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clNombre = ?";
-private static final String SQL_SELECT_ID = "SELECT clId, clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clId = ?";
+   private static final String SQL_SELECT = "SELECT proCodigo, proNombre, proPrecios, proExistencias FROM tbl_productos";
 
-public List<clsCotizacion> consultaCliente() {
+
+public List<clsCotizacion> consultaProducto() {
 
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
 
-        List<clsCotizacion> clientes = new ArrayList<>();
+        List<clsCotizacion> productos = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -44,15 +40,15 @@ public List<clsCotizacion> consultaCliente() {
 
                 int Id = rs.getInt("proCodigo");
                 String Nombre = rs.getString("proNombre");
-                double Haber = rs.getDouble("proPrecios");
-                int Debe = rs.getInt("proExistencias");
+                double Precio = rs.getDouble("proPrecios");
+                int Existencias = rs.getInt("proExistencias");
                 
-                clsCotizacion cliente = new clsCotizacion();
-                cliente.setIdCliente(Id);
-                cliente.setNombreCliente(Nombre);
-                cliente.setHaberCliente(Haber);
-                cliente.setDebeCliente(Debe);
-                clientes.add(cliente);
+                clsCotizacion producto = new clsCotizacion();
+                producto.setIdProducto(Id);
+                producto.setNombreProducto(Nombre);
+                producto.setPrecioProducto(Precio);
+                producto.setExistenciaProducto(Existencias);
+                productos.add(producto);
 
             }
         } catch (SQLException ex) {
@@ -63,7 +59,7 @@ public List<clsCotizacion> consultaCliente() {
             Conexion.close(conn);
         }
 
-        return clientes;
+        return productos;
     }
 
 }

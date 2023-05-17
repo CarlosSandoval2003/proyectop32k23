@@ -37,8 +37,6 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
         } */
     }
 
-   
-
 //a
     
 
@@ -51,20 +49,26 @@ int codigoAplicacion = 3004;
         modelo.addColumn("proNombre");
         modelo.addColumn("proPrecios");
         modelo.addColumn("proExistencias");
-        clsCotizacion cliente = new clsCotizacion();
+        clsCotizacion producto = new clsCotizacion();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsCotizacion> listaClientes = cliente.getListadoClientes();
+        List<clsCotizacion> listaProductos = producto.getListadoProductos();
         tblProdDispCot.setModel(modelo);
         String[] dato = new String[4];
-        for (int i = 0; i < listaClientes.size(); i++) {
-            dato[0] = Integer.toString(listaClientes.get(i).getIdCliente());
-            dato[1] = listaClientes.get(i).getNombreCliente();
-            dato[2] = Double.toString(listaClientes.get(i).getHaberCliente());
-            dato[3] = Double.toString(listaClientes.get(i).getDebeCliente());
+        for (int i = 0; i < listaProductos.size(); i++) {
+            dato[0] = Integer.toString(listaProductos.get(i).getIdProducto());
+            dato[1] = listaProductos.get(i).getNombreProducto();
+            dato[2] = Double.toString(listaProductos.get(i).getPrecioProducto());
+            dato[3] = Double.toString(listaProductos.get(i).getExistenciaProducto());
             modelo.addRow(dato);
         }              
 
 
+    }
+    
+     public frmCotizacion() {
+        initComponents();
+        llenadoDeTablasProductos();
+        llenadoDeCombos();
     }
 
     /**

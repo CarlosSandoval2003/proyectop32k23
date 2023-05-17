@@ -28,51 +28,51 @@ private int IdProducto;
         this.IdProducto = IdCliente;
     }
 
-    public clsCotizacion(String NombreCliente, double PrecioProducto, int ExistenciaProducto) {
-        this.NombreProducto = NombreCliente;
+    public clsCotizacion(String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
+        this.NombreProducto = NombreProducto;
         this.PrecioProducto = PrecioProducto;
         this.ExistenciaProducto = ExistenciaProducto;
     }
 
-    public clsCotizacion(int IdCliente, String NombreCliente, double PrecioProducto, int ExistenciaProducto) {
-        this.IdProducto = IdCliente;
-        this.NombreProducto = NombreCliente;
+    public clsCotizacion(int IdProducto, String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
+        this.IdProducto = IdProducto;
+        this.NombreProducto = NombreProducto;
         this.PrecioProducto = PrecioProducto;
         this.ExistenciaProducto = ExistenciaProducto;
     }
 
-    public int getIdCliente() {
+    public int getIdProducto() {
         return IdProducto;
     }
 
-    public void setIdCliente(int IdCliente) {
-        this.IdProducto = IdCliente;
+    public void setIdProducto(int IdProducto) {
+        this.IdProducto = IdProducto;
     }
 
-    public String getNombreCliente() {
+    public String getNombreProducto() {
         return NombreProducto;
     }
 
-    public void setNombreCliente(String NombreCliente) {
-        this.NombreProducto = NombreCliente;
+    public void setNombreProducto(String NombreProducto) {
+        this.NombreProducto = NombreProducto;
     }
 
 
-public Double getHaberCliente() {
+public Double getPrecioProducto() {
     return PrecioProducto;
 }
 
-public void setHaberCliente(Double HaberCliente) {
-    this.PrecioProducto = HaberCliente;
+public void setPrecioProducto(Double PrecioProducto) {
+    this.PrecioProducto = PrecioProducto;
 }
 
-public int getDebeCliente() {
+public int getExistenciaProducto() {
     return ExistenciaProducto;
 }
 
 
-public void setDebeCliente(int DebeCliente) {
-    this.ExistenciaProducto = DebeCliente;
+public void setExistenciaProducto(int ExistenciaProducto) {
+    this.ExistenciaProducto = ExistenciaProducto;
 }
 
 
@@ -82,11 +82,11 @@ public void setDebeCliente(int DebeCliente) {
     }
     //Metodos de acceso a la capa controlador
  
-    public List<clsCotizacion> getListadoClientes()
+    public List<clsCotizacion> getListadoProductos()
     {
-        daoCotizacion daocliente = new daoCotizacion();
-        List<clsCotizacion> listadoClientes = daocliente.consultaCliente();
-        return listadoClientes;
+        daoCotizacion daoProducto = new daoCotizacion();
+        List<clsCotizacion> listadoProductos = daoProducto.consultaProducto();
+        return listadoProductos;
     }
     
                   
